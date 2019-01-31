@@ -10,3 +10,8 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.c
 mkdir -p ~/.vim/colors
 ln -s $(pwd)/vim/molokai.vim ~/.vim/colors/molokai.vim
 ln -s $(pwd)/vimrc ~/.vimrc
+
+bash -c "command -v gem > /dev/null && gem install rails_best_practices"
+#bash -c "command -v node > /dev/null && npm install -g eslint && eslint --init"
+
+export FZF_DEFAULT_COMMAND=find
