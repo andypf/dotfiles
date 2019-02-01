@@ -13,7 +13,9 @@ ln -s $(pwd)/vimrc ~/.vimrc
 ln -s $(pwd)/tmuxconf ~/.tmux.conf
 
 bash -c "command -v gem > /dev/null && gem install rails_best_practices"
-#bash -c "command -v node > /dev/null && npm install -g eslint && eslint --init"
+bash -c "command -v yarn > /dev/null && yarn global add prettier"
+bash -c "command -v yarn > /dev/null && yarn global add eslint" 
+# eslint --init
 
 export FZF_DEFAULT_COMMAND=find
 
