@@ -9,9 +9,14 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'w0rp/ale'
+Plug 'KurtPreston/vim-autoformat-rails'
 
 call plug#end()
 
+set tabstop=2
+set expandtab
+set shiftwidth=2
+set softtabstop=2
 
 set laststatus=2
 set encoding=utf-8              " Set default encoding to UTF-8
