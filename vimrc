@@ -20,6 +20,12 @@ Plug 'Shougo/neosnippet-snippets'
 
 call plug#end()
 
+" Javascript Prettier
+autocmd FileType javascript set formatprg=prettier\ --stdin
+autocmd BufWritePre *.js :normal gggqG " format on save
+autocmd BufWritePre *.js exe "normal! gggqG\<C-o>\<C-o> " restore cursor position on save (can be buggy)
+
+
 set tabstop=2
 set expandtab
 set shiftwidth=2
