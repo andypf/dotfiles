@@ -11,6 +11,13 @@ Plug 'airblade/vim-gitgutter'
 Plug 'w0rp/ale'
 Plug 'KurtPreston/vim-autoformat-rails'
 
+" Place deoplete first, then autocomplete-flow
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'wokalski/autocomplete-flow'
+" You will also need the following for function argument completion:
+Plug 'Shougo/neosnippet'
+Plug 'Shougo/neosnippet-snippets'
+
 call plug#end()
 
 set tabstop=2
