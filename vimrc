@@ -10,15 +10,25 @@ Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'w0rp/ale'
 Plug 'KurtPreston/vim-autoformat-rails'
-Plug 'tpope/vim-commentary'
-Plug 'Shougo/deoplete.nvim'
-Plug 'roxma/nvim-yarp'
-Plug 'roxma/vim-hug-neovim-rpc'
+
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'mattn/emmet-vim'
+
+" color scheme plugins
+Plug 'drewtempelmeyer/palenight.vim'
+Plug 'rakr/vim-one'
 
 call plug#end()
 
-let g:deoplete#enable_at_startup = 1
 let NERDTreeShowHidden=1
+
+let g:user_emmet_leader_key='<Tab>'
+let g:user_emmet_settings = {
+  \  'javascript.jsx' : {
+    \      'extends' : 'jsx',
+    \  },
+  \}
 
 " Javascript Prettier
 autocmd FileType javascript set formatprg=prettier\ --stdin
@@ -47,11 +57,17 @@ set showcmd                  " Show me what I'm typing
 
 " color
 syntax enable
-set t_Co=256
+
+" palenight colorscheme
 set background=dark
-let g:molokai_original = 1
-let g:rehash256 = 1
-colorscheme molokai
+colorscheme palenight
+" Italics for my favorite color scheme
+let g:palenight_terminal_italics=1
+
+" " one color scheme
+" let g:airline_theme='one'
+" colorscheme one
+" set background=dark
 
 "================================KEY MAPPING==========================
 map <C-o> :NERDTreeToggle<CR>
