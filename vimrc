@@ -18,6 +18,7 @@ Plug 'roxma/vim-hug-neovim-rpc'
 call plug#end()
 
 let g:deoplete#enable_at_startup = 1
+let NERDTreeShowHidden=1
 
 " Javascript Prettier
 autocmd FileType javascript set formatprg=prettier\ --stdin
