@@ -19,8 +19,15 @@ Plug 'mattn/emmet-vim'
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'rakr/vim-one'
 
+Plug 'Shougo/deoplete.nvim'
+Plug 'roxma/nvim-yarp'
+Plug 'roxma/vim-hug-neovim-rpc'
+
+let g:deoplete#enable_at_startup = 1
+
 call plug#end()
 
+let g:deoplete#enable_at_startup = 1
 let NERDTreeShowHidden=1
 
 let g:user_emmet_leader_key='<Tab>'
