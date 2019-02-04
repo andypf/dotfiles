@@ -22,6 +22,8 @@ function fish_user_key_bindings
   bind \e\[1\;9D 'backward-word'
 end
 
+[ -f /usr/local/share/autojump/autojump.fish ]; and . /usr/local/share/autojump/autojump.fish
+
 egrep "^export " ~/.profile | while read e
   set var (echo $e | sed -E "s/^export ([A-Z_]+)=(.*)\$/\1/")
   set value (echo $e | sed -E "s/^export ([A-Z_]+)=(.*)\$/\2/")
