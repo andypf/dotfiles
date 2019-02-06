@@ -14,6 +14,27 @@ alias gc="git commit"
 alias gd='git diff'
 alias gpull='git pull --rebase'
 
+alias k="kubectl"
+
+alias kg="k get"
+alias kgk="k get kluster"
+alias kgka="k get kluster --all-namespaces"
+alias kgp="kg pods -o wide"
+alias kgpa="kgp --all-namespaces"
+alias kgs="kg services --show-all"
+alias kgsa="kg services --all-namespaces"
+alias kgr="kg rc --all-namespaces"
+alias kgn="kg nodes -L container-linux-update.v1.coreos.com/version -L zone -L species -L failure-domain.beta.kubernetes.io/zone"
+alias kl="k logs -f"
+alias klt="kl --tail 1000"
+alias ke="k exec -ti"
+alias kd="k describe"
+alias kdp="kd pod"
+alias kds="kd service"
+alias kdr="kd rc"
+alias kdn="kd node"
+alias kc="k create"
+
 function fish_user_key_bindings
   bind \e.       'history-token-search-backward'
   bind \e\[1\;9A 'history-token-search-backward'
