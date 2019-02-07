@@ -1,6 +1,13 @@
-# INSTALL
+# NSTALL
 # cp tmuxconf ~/.tmux.conf
 #
+# remap prefix from 'C-b' to 'C-a'
+unbind C-b
+set-option -g prefix C-a
+bind-key C-a send-prefix
+
+# reload config file (change file location to your the tmux.conf you want to use)
+bind r source-file ~/.tmux.conf \; display "Reloaded!"
 
 # if multiple clients are attached to the same window, maximize it to the
 # bigger one
@@ -22,8 +29,62 @@ set -g display-time 4000
 # {n}vim compability
 set -g default-terminal "screen-256color"
 
-# Split horiziontal and vertical splits, instead of % and "
-# Also open them in the same directory
+set-option -g allow-rename off
+# Set parent terminal title to reflect current window in tmux session 
+set -g set-titles on
+#set -g set-titles-string "#I:#W"
+set -g set-titles-string '#H:#S.#I.#P #W #T' # window number,program name, active(or not)
+
+# Have a very large history
+set -g history-limit 1000000
+
+# Activity bell and whistles
+set -g visual-activity on
+
+# switch panes using Alt-arrow without prefix
+bind -n M-Left select-pane -L
+bind -n M-Right select-pane -R
+bind -n M-Up select-pane -U
+bind -n M-Down select-pane -D
+
+# Mouse mode on (tmux 2.1 and above)
+set -g terminal-overrides 'xterm*:smcup@:rmcup@'
+set -g mouse on
+
+# don't rename windows automatically
+#setw -g automatic-rename off
+
+# ----------------------
+# Status Bar
+# -----------------------
+set-option -g status on                # turn the status bar on
+set -g status-interval 5               # set update frequencey (default 15 seconds)
+# set -g status-justify centre           # center window list for clarity
+set-option -g status-position bottom    # position the status bar at top of screen
+
+# visual notification of activity in other windows
+setw -g monitor-activity on
+set -g visual-activity on
+
+# set color for status bar
+set-option -g status-bg colour236#black#yellow#colour235 #base02
+set-option -g status-fg cyan #white#yellow #yellow
+set-option -g status-attr dim
+#
+## set window list colors - red for active and cyan for inactive
+set-window-option -g window-status-fg cyan#white#brightblue #base6
+set-window-option -g window-status-bg brightred#colour236
+set-window-option -g window-status-attr dim
+#
+set-window-option -g window-status-current-fg brightred #orange
+set-window-option -g window-status-current-bg colour236
+set-window-option -g window-status-current-attr bright
+#
+set -g status-right-length 200
+set -g status-right "#{sysstat_cpu} | #{sysstat_mem} | #{sysstat_swap} | #{sysstat_loadavg} | #[fg=white,bold]%h %d %Y %H:%M"
+set -g @sysstat_mem_size_unit "G"
+
+
 #bind-key v split-window -h -c '#{pane_current_path}'
 # bind-key s split-window -v -c '#{pane_current_path}'
 
@@ -32,13 +93,7 @@ set -g default-terminal "screen-256color"
 bind-key -n C-S-Left swap-window -t -1
 bind-key -n C-S-Right swap-window -t +1
 
-# Mouse mode on
-set -g terminal-overrides 'xterm*:smcup@:rmcup@'
-set -g mouse on
 
-# Set title
-set -g set-titles on
-set -g set-titles-string "#T"
 
 # Equally resize all panes
 bind-key = select-layout even-horizontal
@@ -53,93 +108,9 @@ bind-key L resize-pane -R 10
 #
 #
 # Source file
-unbind r
-bind r source-file ~/.tmux.conf \; display "Reloaded!"
-
-# Have a very large history
-set -g history-limit 1000000
-
-# Use vim keybindings in copy mode
-setw -g mode-keys vi
-
-# Update default binding of `Enter` and `Space to also use copy-pipe
-unbind -T copy-mode-vi Enter
-unbind -T copy-mode-vi Space
-
-bind-key -T edit-mode-vi Up send-keys -X history-up
-bind-key -T edit-mode-vi Down send-keys -X history-down
-
-# setup 'v' to begin selection as in Vim
-bind-key -T copy-mode-vi 'v' send-keys -X begin-selection
-
-# copy text with `y` in copy mode
-# bind-key -T copy-mode-vi 'y' send -X copy-selection-and-cancel\; run "tmux save -|pbcopy >/dev/null 2>&1"
-bind-key -T copy-mode-vi 'y' send -X copy-selection-and-cancel
-
-# copy text with mouse selection without pressing any key
-# bind-key -T copy-mode-vi MouseDragEnd1Pane send -X copy-selection-and-cancel\; run "tmux save -|pbcopy >/dev/null 2>&1"
-# bind-key -T copy-mode-vi MouseDragEnd1Pane send -X copy-selection-and-cancel
-
-# emacs key bindings in tmux command prompt (prefix + :) are better than
-# vi keys, even for vim users
-set -g status-keys emacs
-
-# focus events enabled for terminals that support them
-set -g focus-events on
-
-# Sync panes (Send input to all panes in the window). When enabled, pane
-# borders become red as an indication.
-bind C-s if -F '#{pane_synchronized}' \
-                     'setw synchronize-panes off; \
-                      setw pane-active-border-style fg=colour63,bg=default; \
-                      setw pane-border-format       " #P "' \
-                   'setw synchronize-panes on; \
-                    setw pane-active-border-style fg=red; \
-                    setw pane-border-format       " #P - Pane Synchronization ON "'
-
-# Faster command sequence
-set -s escape-time 0
-
-# Have a very large history
-set -g history-limit 1000000
-
-# Mouse mode on
-set -g terminal-overrides 'xterm*:smcup@:rmcup@'
-set -g mouse on
-
-# Set title
-set -g set-titles on
-set -g set-titles-string "#T"
-
-# Equally resize all panes
-bind-key = select-layout even-horizontal
-bind-key | select-layout even-vertical
-
-# Resize panes
-bind-key J resize-pane -D 10
-bind-key K resize-pane -U 10
-bind-key H resize-pane -L 10
-bind-key L resize-pane -R 10
-
-# Select panes 
-# NOTE(arslan): See to prevent cycling https://github.com/tmux/tmux/issues/1158
-bind-key j select-pane -D 
-bind-key k select-pane -U 
-bind-key h select-pane -L 
-bind-key l select-pane -R 
-
-# Disable confirm before killing
-bind-key x kill-pane
-
-# List of plugins
-# see this https://github.com/tmux-plugins/tpm to installation
-set -g @plugin 'tmux-plugins/tpm'
-set -g @plugin 'tmux-plugins/tmux-open'
-
+#unbind r
+set -g @plugin 'samoshkin/tmux-plugin-sysstat'
 set -g @plugin 'tmux-plugins/tmux-yank'
-set -g @yank_with_mouse off
-
-set -g @plugin 'tmux-plugins/tmux-prefix-highlight'
 
 # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
 run '~/.tmux/plugins/tpm/tpm'
