@@ -44,6 +44,7 @@ function fish_user_key_bindings
 end
 
 [ -f /usr/local/share/autojump/autojump.fish ]; and . /usr/local/share/autojump/autojump.fish
+[ -f /root/.autojump/share/autojump/autojump.fish ]; and . /root/.autojump/share/autojump/autojump.fish
 
 if test -e ~/.profile
   egrep "^export " ~/.profile | while read e
