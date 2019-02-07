@@ -12,9 +12,10 @@ ln -f -s $(pwd)/vimrc ~/.vimrc
 ln -f -s $(pwd)/tmuxconf ~/.tmux.conf
 
 bash -c "command -v pip3 > /dev/null && pip3 install --user pynvim"
-bash -c "command -v gem > /dev/null && gem install rails_best_practices"
+bash -c "command -v gem > /dev/null && gem install rubocop"
 bash -c "command -v yarn > /dev/null && yarn global add prettier"
 bash -c "command -v yarn > /dev/null && yarn global add eslint" 
+bash -c "command -v yarn > /dev/null && yarn global add js-beautify" 
 # eslint --init
 
 export FZF_DEFAULT_COMMAND=find

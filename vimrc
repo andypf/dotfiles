@@ -1,5 +1,6 @@
 call plug#begin('~/.vim/plugged')
 
+
 Plug 'scrooloose/nerdtree'
 Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-eunuch'
@@ -10,12 +11,13 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'w0rp/ale'
-Plug 'KurtPreston/vim-autoformat-rails'
+Plug 'Chiel92/vim-autoformat'
 
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'mattn/emmet-vim'
 
+Plug 'roxma/vim-tmux-clipboard'
 Plug 'tmux-plugins/vim-tmux', {'for': 'tmux'}
 Plug 'tmux-plugins/vim-tmux-focus-events'
 
@@ -27,9 +29,11 @@ Plug 'Shougo/deoplete.nvim'
 Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
 
-let g:deoplete#enable_at_startup = 1
+Plug 'Yggdroot/indentLine'
 
 call plug#end()
+
+let g:deoplete#enable_at_startup = 1
 
 let g:deoplete#enable_at_startup = 1
 let NERDTreeShowHidden=1
@@ -42,15 +46,16 @@ let g:user_emmet_settings = {
   \}
 
 " Javascript Prettier
-autocmd FileType javascript set formatprg=prettier\ --stdin
-autocmd BufWritePre *.js :normal gggqG " format on save
-autocmd BufWritePre *.js exe "normal! gggqG\<C-o>\<C-o> " restore cursor position on save (can be buggy)
+" autocmd FileType javascript set formatprg=prettier\ --stdin
+" autocmd BufWritePre *.js :normal gggqG " format on save
+" autocmd BufWritePre *.js exe "normal! gggqG\<C-o>\<C-o> " restore cursor position on save (can be buggy)
 
 
 set tabstop=2
 set expandtab
 set shiftwidth=2
 set softtabstop=2
+set smartindent
 
 set laststatus=2
 set encoding=utf-8              " Set default encoding to UTF-8
@@ -66,6 +71,8 @@ set noerrorbells             " No beeps
 set number                   " Show line numbers
 set showcmd                  " Show me what I'm typing
 
+set listchars=tab:\|\ 
+set list
 " color
 syntax enable
 
@@ -84,6 +91,8 @@ let g:palenight_terminal_italics=1
 map <C-o> :NERDTreeToggle<CR>
 map ; :Files<CR>
 
+" format by typing \==
+nnoremap <unique> <silent> = :Autoformat<CR>
 
 nnoremap <A-j> :m .+1<CR>==
 nnoremap º :m .+1<CR>==
