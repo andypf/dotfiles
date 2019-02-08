@@ -2,8 +2,8 @@ echo "Load Dotfiles..."
 
 sed -i 's/\(root:.*\/root:\)\/bin\/ash/\1\/usr\/bin\/fish/g' /etc/passwd
 
-ln -f -s $(pwd)/fish/config.fish ~/.config/fish/config.fish
-ln -f -s $(pwd)/fish/functions ~/.config/fish/functions
+ln -s $(pwd)/fish/config.fish ~/.config/fish/config.fish
+ln -s $(pwd)/fish/functions ~/.config/fish/functions
 
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
@@ -12,8 +12,8 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 
 mkdir -p ~/.vim/colors
-ln -f -s $(pwd)/vimrc ~/.vimrc
-ln -f -s $(pwd)/tmuxconf ~/.tmux.conf
+ln -s $(pwd)/vimrc ~/.vimrc
+ln -s $(pwd)/tmuxconf ~/.tmux.conf
 
 bash -c "command -v pip3 > /dev/null && pip3 install --user pynvim"
 bash -c "command -v gem > /dev/null && gem install rubocop"
