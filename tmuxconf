@@ -77,7 +77,7 @@ set-option -g status-fg cyan #white#yellow #yellow
 set-option -g status-attr dim
 #
 ## set window list colors - red for active and cyan for inactive
-set-window-option -g window-status-fg cyan#white#brightblue #base6
+set-window-option -g window-status-fg white#brightblue #base6
 set-window-option -g window-status-bg brightred#colour236
 set-window-option -g window-status-attr dim
 #
