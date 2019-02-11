@@ -87,6 +87,8 @@ let g:palenight_terminal_italics=1
 " colorscheme one
 " set background=dark
 
+highlight LineNr ctermfg=darkgrey
+
 "================================KEY MAPPING==========================
 map <C-o> :NERDTreeToggle<CR>
 map ; :Files<CR>
