@@ -25,30 +25,37 @@ Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'rakr/vim-one'
 
-Plug 'Shougo/deoplete.nvim'
-Plug 'roxma/nvim-yarp'
-Plug 'roxma/vim-hug-neovim-rpc'
-
 Plug 'Yggdroot/indentLine'
+Plug 'vim-scripts/AutoComplPop'
 
 call plug#end()
 
-let g:deoplete#enable_at_startup = 1
-
-let g:deoplete#enable_at_startup = 1
 let NERDTreeShowHidden=1
 
 let g:user_emmet_leader_key='<Tab>'
 let g:user_emmet_settings = {
-  \  'javascript.jsx' : {
-    \      'extends' : 'jsx',
-    \  },
-  \}
+      \  'javascript.jsx' : {
+      \      'extends' : 'jsx',
+      \  },
+      \}
 
-" Javascript Prettier
-" autocmd FileType javascript set formatprg=prettier\ --stdin
-" autocmd BufWritePre *.js :normal gggqG " format on save
-" autocmd BufWritePre *.js exe "normal! gggqG\<C-o>\<C-o> " restore cursor position on save (can be buggy)
+"set completeopt=longest,menuone
+"inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+"inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
+"  \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+"
+"inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
+"  \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+"
+"" open omni completion menu closing previous if open and opening new menu
+"" without changing the text
+"inoremap <expr> <C-Space> (pumvisible() ? (col('.') > 1 ? '<Esc>i<Right>' : '<Esc>i') : '') .
+"             \ '<C-x><C-o><C-r>=pumvisible() ? "\<lt>C-n>\<lt>C-p>\<lt>Down>" : ""<CR>'
+"" open user completion menu closing previous if open and opening new menu
+"" without changing the text
+"inoremap <expr> <S-Space> (pumvisible() ? (col('.') > 1 ? '<Esc>i<Right>' : '<Esc>i') : '') .
+"             \ '<C-x><C-u><C-r>=pumvisible() ? "\<lt>C-n>\<lt>C-p>\<lt>Down>" : ""<CR>'
+
 
 
 set tabstop=2
@@ -71,7 +78,7 @@ set noerrorbells             " No beeps
 set number                   " Show line numbers
 set showcmd                  " Show me what I'm typing
 
-set listchars=tab:\|\ 
+set listchars=tab:\|\
 set list
 " color
 syntax enable
@@ -113,3 +120,27 @@ vnoremap º :m '>+1<CR>gv=gv
 
 vnoremap <A-k> :m '<-2<CR>gv=gv
 vnoremap ∆ :m '<-2<CR>gv=gv
+
+
+" inoremap <tab> <c-r>=Smart_TabComplete()<CR>
+" 
+" function! Smart_TabComplete()
+"   let line = getline('.')
+" 
+"   let substr = strpart(line, -1, col('.')+1)
+" 
+" 
+"   let substr = matchstr(substr, "[^ \t]*$")
+"   if (strlen(substr)==0)
+"     return "\<tab>"
+"   endif
+"   let has_period = match(substr, '\.') != -1
+"   let has_slash = match(substr, '\/') != -1
+"   if (!has_period && !has_slash)
+"     return "\<C-X>\<C-P>"
+"   elseif ( has_slash )
+"     return "\<C-X>\<C-F>"
+"   else
+"     return "\<C-X>\<C-O>"
+"   endif
+" endfunction
