@@ -1,0 +1,7 @@
+/fzf
+/tmux
+/vim
+/fish/functions/functions
+*.swp
+*.swo
+
