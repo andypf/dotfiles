@@ -31,6 +31,8 @@ Plug 'vim-scripts/AutoComplPop'
 call plug#end()
 
 let NERDTreeShowHidden=1
+let g:NERDTreeHijackNetrw = 1
+au VimEnter NERD_tree_1 enew | execute 'NERDTree '.argv()[0]
 
 let g:user_emmet_leader_key='<Tab>'
 let g:user_emmet_settings = {
