@@ -28,6 +28,8 @@ Plug 'rakr/vim-one'
 Plug 'Yggdroot/indentLine'
 Plug 'vim-scripts/AutoComplPop'
 
+Plug 'Xuyuanp/nerdtree-git-plugin'
+
 call plug#end()
 
 let NERDTreeShowHidden=1
