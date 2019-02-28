@@ -6,6 +6,9 @@ set -x FZF_DEFAULT_COMMAND find
 set -g fish_user_paths "/usr/local/bin" $fish_user_paths
 set -g fish_user_paths "/usr/local/sbin" $fish_user_paths
 
+set -x GITHUB_TOKEN=2cf76d17e34ef35591e57d9fdd9afcd872ec4754
+set -x TEAM=cmf
+
 alias ls='ls -A'
 
 alias gs="git status"
@@ -14,7 +17,7 @@ alias gc="git commit"
 alias gd='git diff'
 alias gpull='git pull --rebase'
 
-alias k="kubectl"
+alias k="_kubectl"
 
 alias kg="k get"
 alias kgk="k get kluster"

@@ -94,6 +94,8 @@ colorscheme palenight
 let g:palenight_terminal_italics=1
 let g:indentLine_setConceal = 0
 
+highlight LineNr ctermfg=darkgrey
+
 " " one color scheme
 " let g:airline_theme='one'
 " colorscheme one
