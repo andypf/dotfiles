@@ -84,6 +84,7 @@ set showcmd                  " Show me what I'm typing
 
 set listchars=tab:\|\
 set list
+
 " color
 syntax enable
 
@@ -92,6 +93,7 @@ set background=dark
 colorscheme palenight
 " Italics for my favorite color scheme
 let g:palenight_terminal_italics=1
+let g:indentLine_setConceal = 0
 
 " " one color scheme
 " let g:airline_theme='one'
