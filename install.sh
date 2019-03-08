@@ -10,6 +10,7 @@ mkdir -p $(pwd)/tmux
 
 ln -s $(pwd)/vim ~/.vim
 ln -s $(pwd)/tmux ~/.tmux
+ln -s $(pwd)/gitconfig ~/.gitconfig
 
 ln -s $(pwd)/fish/functions ~/.config/fish/functions
 ln -s $(pwd)/fish/functions ~/.config/fish/functions
