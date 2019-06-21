@@ -22,6 +22,8 @@ mkdir -p ~/.vim/colors
 ln -s $(pwd)/vimrc ~/.vimrc
 ln -s $(pwd)/tmuxconf ~/.tmux.conf
 
+vim +PlugInstall +qall
+
 bash -c "command -v gem > /dev/null && gem install rubocop"
 bash -c "command -v yarn > /dev/null && yarn global add prettier"
 bash -c "command -v yarn > /dev/null && yarn global add eslint" 
