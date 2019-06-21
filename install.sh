@@ -12,9 +12,6 @@ ln -s $(pwd)/vim ~/.vim
 ln -s $(pwd)/tmux ~/.tmux
 ln -s $(pwd)/gitconfig ~/.gitconfig
 
-ln -s $(pwd)/fish/functions ~/.config/fish/functions
-ln -s $(pwd)/fish/functions ~/.config/fish/functions
-
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm 
