@@ -94,10 +94,6 @@ colorscheme palenight
 let g:palenight_terminal_italics=1
 let g:indentLine_setConceal = 0
 
-if (has("termguicolors"))
-  set termguicolors
-endif
-
 " " one color scheme
 " let g:airline_theme='one'
 " colorscheme one
