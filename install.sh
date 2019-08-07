@@ -20,8 +20,6 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 mkdir -p ~/.vim/colors
 ln -s $(pwd)/vimrc ~/.vimrc
-vim +PlugInstall +qall
-
 ln -s $(pwd)/tmuxconf ~/.tmux.conf
 
 bash -c "command -v gem > /dev/null && gem install rubocop"
