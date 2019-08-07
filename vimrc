@@ -27,6 +27,10 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 
 call plug#end()
 
+if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  autocmd VimEnter * PlugInstall
+endif
+
 let NERDTreeShowHidden=1
 let g:NERDTreeHijackNetrw = 1
 au VimEnter NERD_tree_1 enew | execute 'NERDTree '.argv()[0]
