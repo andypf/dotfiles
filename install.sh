@@ -20,9 +20,9 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 mkdir -p ~/.vim/colors
 ln -s $(pwd)/vimrc ~/.vimrc
-ln -s $(pwd)/tmuxconf ~/.tmux.conf
-
 vim +PlugInstall +qall
+
+ln -s $(pwd)/tmuxconf ~/.tmux.conf
 
 bash -c "command -v gem > /dev/null && gem install rubocop"
 bash -c "command -v yarn > /dev/null && yarn global add prettier"
