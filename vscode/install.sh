@@ -4,4 +4,4 @@ echo "install extensions"
 
 #code-server --install-extension ms-vscode.go && \
 
-cp /root/dotfiles/vscode/user /root/.local/share/code-server/User
+cp -r /root/dotfiles/vscode/user /root/.local/share/code-server/User
