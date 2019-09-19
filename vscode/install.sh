@@ -15,8 +15,6 @@ mkdir -p /root/dotfiles/tmux
 
 ln -s /root/dotfiles/tmux ~/.tmux
 
-ln -s /root/workspace/bash_aliases ~/.bash_aliases
-
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm 
 # git clone git://github.com/wting/autojump.git /tmp/autojump && python /tmp/autojump/install.py
 
