@@ -3,7 +3,7 @@
     "editor.renderWhitespace": "all",
     "editor.renderControlCharacters": true,
     "editor.tabSize": 2,
-    "terminal.integrated.shell.linux": "/root/dotfiles/vscode/terminal.sh",
+    "terminal.integrated.shell.linux": "/root/terminal.sh",
     "editor.fontFamily": "'DejaVu Sans Mono for Powerline', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
     "editor.fontLigatures": true,
     "workbench.editor.restoreViewState": true,
