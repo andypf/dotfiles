@@ -4,6 +4,7 @@ echo "install extensions"
 
 #code-server --install-extension ms-vscode.go && \
 
+echo $(pwd)
 cp -r $(pwd)/user /root/.local/share/code-server/User
 
 sed -i 's/\(root:.*\/root:\)\/bin\/ash/\1\/usr\/bin\/fish/g' /etc/passwd
