@@ -6,6 +6,8 @@ echo "install extensions"
 
 echo $(pwd)
 cp -r $(pwd)/user /root/.local/share/code-server/User
+cp $(pwd)/terminal.sh /root/terminal.sh
+chmod +x /root/terminal.sh
 
 sed -i 's/\(root:.*\/root:\)\/bin\/ash/\1\/usr\/bin\/fish/g' /etc/passwd
 
