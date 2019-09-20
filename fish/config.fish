@@ -6,8 +6,7 @@ set -x FZF_DEFAULT_COMMAND find
 set -g fish_user_paths "/usr/local/bin" $fish_user_paths
 set -g fish_user_paths "/usr/local/sbin" $fish_user_paths
 
-set -x GITHUB_TOKEN=2cf76d17e34ef35591e57d9fdd9afcd872ec4754
-set -x TEAM=cmf
+set -x GITHUB_TOKEN 2cf76d17e34ef35591e57d9fdd9afcd872ec4754
 
 alias ls='ls -A'
 
