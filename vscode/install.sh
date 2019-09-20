@@ -5,7 +5,7 @@ echo "install extensions"
 #code-server --install-extension ms-vscode.go && \
 
 echo $(pwd)
-cp -r $(pwd)/user /root/.local/share/code-server/User
+cp -r $(pwd)/user/settings.json /root/.local/share/code-server/User/
 cp $(pwd)/terminal.sh /root/terminal.sh
 chmod +x /root/terminal.sh
 
