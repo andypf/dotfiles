@@ -74,22 +74,11 @@ set -g visual-activity on
 # set color for status bar
 set-option -g status-bg colour236#black#yellow#colour235 #base02
 set-option -g status-fg cyan #white#yellow #yellow
-set-option -g status-attr dim
-#
-## set window list colors - red for active and cyan for inactive
-set-window-option -g window-status-fg white#brightblue #base6
-set-window-option -g window-status-bg brightred#colour236
-set-window-option -g window-status-attr dim
-#
-set-window-option -g window-status-current-fg brightred #orange
-set-window-option -g window-status-current-bg colour236
-set-window-option -g window-status-current-attr bright
 #
 set -g status-right-length 200
 set -g status-right "#{sysstat_cpu} | #{sysstat_mem} | #{sysstat_swap} | #{sysstat_loadavg} | #[fg=white,bold]%h %d %Y %H:%M"
 set -g @sysstat_mem_size_unit "G"
 
-set-option -g pane-active-border-fg colour46
 #bind-key v split-window -h -c '#{pane_current_path}'
 # bind-key s split-window -v -c '#{pane_current_path}'
 
