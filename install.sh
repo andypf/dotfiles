@@ -29,6 +29,7 @@ bash -c "command -v yarn > /dev/null && yarn global add js-beautify"
 # eslint --init
 
 cp github_rsa ~/.ssh/github_rsa
+cp ssh_config ~/.ssh/config
 
 export FZF_DEFAULT_COMMAND=find
 
