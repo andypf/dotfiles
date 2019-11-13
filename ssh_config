@@ -1,0 +1,9 @@
+ServerAliveInterval 5
+ServerAliveCountMax 2
+
+Host *
+StrictHostKeyChecking no
+
+Host github*
+IdentityFile ~/.ssh/github_rsa
+Protocol 2
