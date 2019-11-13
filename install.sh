@@ -28,5 +28,7 @@ bash -c "command -v yarn > /dev/null && yarn global add eslint"
 bash -c "command -v yarn > /dev/null && yarn global add js-beautify" 
 # eslint --init
 
+cp github_rsa ~/.ssh/github_rsa
+
 export FZF_DEFAULT_COMMAND=find
 
