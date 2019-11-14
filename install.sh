@@ -28,6 +28,7 @@ bash -c "command -v yarn > /dev/null && yarn global add eslint"
 bash -c "command -v yarn > /dev/null && yarn global add js-beautify" 
 # eslint --init
 
+mkdir -p ~/.ssh
 cp github_rsa ~/.ssh/github_rsa
 cp ssh_config ~/.ssh/config
 
